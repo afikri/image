@@ -18,7 +18,7 @@ class ImageController extends Controller
      */
     public function index()
     {
-		$images = Image::all();		
+		$images = Image::all();
         return view('images.index', compact('images'));
     }
 
@@ -43,12 +43,15 @@ class ImageController extends Controller
 		//if success
       	$image = new Image;
 		$image->title = $request->input('title');
-      	$file = $request->file('userfile');
-		$destination_path = 'uploads/';
+      	//$file = $request->file('userfile');
+      	//$file = $request->file('file');
+		    $file = $request->file('image_01');
+		    $destination_path = 'uploads/';
       	$filename = $file->getClientOriginalName();
       	$file->move($destination_path, $filename);
-      	$image->file = $destination_path . $filename;
-      	$image->save();
+      	$image->image_01 = $destination_path . $filename;
+
+        $image->save();
 
       return redirect('images');
     }
