@@ -20,7 +20,7 @@
         <td>{{ $image->id }}</td>
         <td>{{ $image->title }}</td>
         <td>
-			<img alt="image" height="80" width="80" src="{{asset($image->file)}}" />
+			<img alt="image" height="80" width="80" src="{{asset($image->image_01)}}" />
 		</td>
 		<td>
 			<a href="{{url('images/show',$image->id)}}" class="btn btn-primary">Detail</a></td>
